@@ -32,6 +32,7 @@ backend/data/backups/*
 !backend/data/backups/.gitkeep
 backend/data/samples/*
 !backend/data/samples/.gitkeep
+backend/data/phase5_lab/
 data/storage/*
 data/backups/*
 data/samples/*
@@ -40,6 +41,12 @@ backend/data/*.json
 *.eml
 *.msg
 *.pcap
+
+# Internal Audit & Phase Reports (Excluded from public repo)
+phase*.md
+FINAL_PROJECT_COMPLETION_REPORT.md
+navigation_bug_fix_report.md
+phishscope_final_project_report.md
 
 # Python Caches & Virtual Environments
 __pycache__/
