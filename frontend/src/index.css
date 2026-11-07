@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@theme {
+  --color-slate-950: #090909;
+  --color-slate-900: #171717;
+  --color-slate-800: #242424;
+  --color-slate-700: #393939;
+  --color-slate-600: #4b5563;
+  --color-slate-500: #6b7280;
+  --color-slate-400: #9CA3AF;
+  --color-slate-300: #D1D5DB;
+  --color-slate-200: #E5E7EB;
+  --color-slate-100: #F3F4F6;
+  --color-slate-50: #F9FAFB;
+
+  /* Primary Accent: Avengers Gold */
+  --color-sky-50: #fbf6ec;
+  --color-sky-100: #f6ebd2;
+  --color-sky-200: #ebd3a1;
+  --color-sky-300: #dfba6f;
+  --color-sky-400: #F0B94B;
+  --color-sky-500: #D99A32;
+  --color-sky-600: #b87b21;
+  --color-sky-700: #925c1b;
+  --color-sky-800: #75481b;
+  --color-sky-900: #623c1b;
+  --color-sky-950: #261705;
+
+  /* Secondary Accent: Electric Blue */
+  --color-indigo-50: #edf7fd;
+  --color-indigo-100: #d6eefa;
+  --color-indigo-200: #b3def7;
+  --color-indigo-300: #7ec7f2;
+  --color-indigo-400: #42aceb;
+  --color-indigo-500: #168BDA;
+  --color-indigo-600: #0d6eb8;
+  --color-indigo-700: #0c5794;
+  --color-indigo-800: #0e4a7a;
+  --color-indigo-900: #113f65;
+  --color-indigo-950: #08192b;
+
+  --color-blue-400: #42aceb;
+  --color-blue-500: #168BDA;
+  --color-blue-600: #0d6eb8;
+
+  /* Thor Crimson Red */
+  --color-red-400: #E24A4A;
+  --color-red-500: #D62828;
+  --color-red-600: #B51D1D;
+  --color-red-950: #240606;
+
+  --color-rose-400: #E24A4A;
+  --color-rose-500: #D62828;
+  --color-rose-600: #B51D1D;
+  --color-rose-950: #240606;
+
+  /* Healthy Status */
+  --color-emerald-400: #34D399;
+  --color-emerald-500: #10B981;
+  --color-emerald-600: #059669;
+  --color-emerald-950: #052016;
+
+  /* Custom named tokens */
+  --color-avengers-gold: #D99A32;
+  --color-metallic-gold: #F0B94B;
+  --color-electric-blue: #168BDA;
+  --color-thor-red: #D62828;
+  --color-dark-steel: #393939;
+  --color-dark-charcoal: #171717;
+  --color-metallic-grey: #242424;
+  --color-deep-black: #090909;
+}
+
+body {
+  background-color: #090909;
+  color: #E5E7EB;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090909;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #393939;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D99A32;
+}

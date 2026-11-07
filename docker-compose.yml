@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: phishscope_backend
+    restart: unless-stopped
+    ports:
+      # Bind strictly to localhost interface (never 0.0.0.0 directly)
+      - "127.0.0.1:5000:5000"
+    environment:
+      - FLASK_ENV=production
+      - FLASK_DEBUG=0
+      - ENABLE_AUTH=true
+      - MAX_UPLOAD_SIZE_MB=25
+    env_file:
+      - ./backend/.env
+    volumes:
+      - phishscope_storage:/app/data/storage
+      - phishscope_samples:/app/data/samples
+      - phishscope_backups:/app/data/backups
+      - phishscope_db:/app/data
+    networks:
+      - phishscope_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:5000/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: phishscope_frontend
+    restart: unless-stopped
+    ports:
+      # Bind to localhost port 80 or 5173
+      - "127.0.0.1:5173:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - phishscope_network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1:80/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+networks:
+  phishscope_network:
+    driver: bridge
+
+volumes:
+  phishscope_storage:
+  phishscope_samples:
+  phishscope_backups:
+  phishscope_db:
+

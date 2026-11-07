@@ -1,0 +1,27 @@
+# Exclude credentials and environment files
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.token
+
+# Exclude local database files
+*.db
+*.sqlite3
+data/storage/*
+!data/storage/.gitkeep
+data/backups/*
+
+# Exclude Python bytecode and virtualenvs
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+env/
+
+# Exclude IDE and test artifacts
+.git/
+.pytest_cache/
+*.log
